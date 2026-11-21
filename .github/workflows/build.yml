@@ -15,12 +15,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-            - name: Extract project ZIP
+      - name: Extract project ZIP
         run: |
           mkdir -p extracted/project
           unzip -o shift_roster_cloud_build.zip -d extracted
           find extracted -name '*.zip' -exec unzip -o {} -d extracted/project \;
-        
+
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
@@ -28,7 +28,7 @@ jobs:
           java-version: '17'
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v4
+        uses: android-actions/setup-android@v3
 
       - name: Build APK
         run: |
